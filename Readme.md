@@ -2,6 +2,8 @@
 ---
 ### Note:
     - Implemented only for ImageNetLT
+    - `normal_teachers` is the `Standard model` from the paper
+    - `aug_teachers` is the `Data Augmentation model` from the paper
 
 ## Things to do before you run :
 - Change the `data_root` for your dataset in `main.py`.
