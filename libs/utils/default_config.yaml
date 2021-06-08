@@ -1,0 +1,62 @@
+criterions:
+  EmbeddingLoss:
+    def_file: ./loss/SoftmaxLoss.py
+    loss_params: {}
+    optim_params: null
+    weight: 1.0
+  PerformanceLoss:
+    def_file: ./loss/SoftmaxLoss.py
+    loss_params: {}
+    optim_params: null
+    weight: 1.0
+  ClassifierLoss:
+    def_file: ./loss/SoftmaxLoss.py
+    loss_params: {}
+    optim_params: null
+    weight: 1.0
+endlr: 0.0
+last: false
+networks:
+  classifier:
+    def_file: ./models/DotProductClassifier.py
+    fix: false
+    optim_params: {}
+    scheduler_params: {}
+    params: {}
+  embedding:
+    def_file: ./models/DotProductClassifier.py
+    fix: false
+    optim_params: {lr: 0.2, momentum: 0.9, weight_decay: 0.0005}
+    scheduler_params: {coslr: true}
+    params: {feat_dim: 128, embedding_dim: 64, num_classes: <NumberOfClasses>, pretrain: False, pretrain_dir: None}
+  feat_model:
+    def_file: ./models/ResNet32Feature.py
+    fix: false
+    optim_params: {lr: 0.2, momentum: 0.9, weight_decay: 0.0005}
+    scheduler_params: {coslr: true}
+    params: {pretrain: False, pretrain_dir: None}
+shuffle: false
+training_opt:
+  backbone: resnet32
+  batch_size: 512
+  accumulation_step: 1
+  dataset: <DatasetName>
+  display_step: 10
+  log_dir: ./logs/CIFAR100LT/models/resnet32_normal_learning_CIFAR100_LT_imb10_e100
+  num_classes: <NumberOfClasses>
+  cifar_imb_ratio: <ImbalanceRatio>   # 0.01, 0.02, 0.1 for 100, 50, 10
+  # optimizer: adam
+  num_epochs: 100
+  num_workers: 12
+  open_threshold: 0.1
+  sampler: null
+  stage: resnet32_normal_learning_CIFAR100_LT_imb10_e100
+wandb_tags: ["<tag1>","<tag2>"]
+
+pg: 
+  generate: False
+
+retrain:
+  protobias: True
+  
+
