@@ -1,4 +1,4 @@
-# Unoffical Pytorch Implementation of [Class-Balanced Distillation for Long-Tailed Visual Recognition](https://arxiv.org/abs/2104.05279) by [Ahmet Iscen](https://cmp.felk.cvut.cz/~iscenahm/), André Araujo, Boqing Gong, Cordelia Schmid
+# Pytorch Implementation of [Class-Balanced Distillation for Long-Tailed Visual Recognition](https://arxiv.org/abs/2104.05279) by [Ahmet Iscen](https://cmp.felk.cvut.cz/~iscenahm/), André Araujo, Boqing Gong, Cordelia Schmid
 ---
 ### Note:
     - Implemented only for ImageNetLT
