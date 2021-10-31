@@ -322,9 +322,6 @@ def experiment_maker(experiment, data_root, normal_teacher=1, aug_teacher=None, 
     else:
         print(f"Wrong experiments setup!-{experiment}")
     
-    config["training_opt"]["num_epochs"] = 2
-    config["training_opt"]["accumulation_step"] = int(128/config["training_opt"]["batch_size"])
-    
     if g.log_offline:
         g.log_dir = config["training_opt"]["log_dir"]
     return config
